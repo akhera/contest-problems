@@ -70,6 +70,36 @@ public class challengeProblems {
 	}
 	
 	
+	public static int challengeProblem2(int[] nums)
+	{
+		//You are given an unsorted array of integers that contain duplicate numbers. 
+
+		//Only one number is duplicated odd number of duplications, other numbers are repeated even number of duplications. 
+
+		//Find this number
+		HashMap<Integer,Integer> values = new HashMap<Integer, Integer>();
+		Integer count = null;
+		for(int i = 0;i<nums.length;i++)
+		{
+			values.put(nums[i],values.get(nums[i]+1));
+			
+		}
+		
+		for(Map.Entry entry: values.entrySet())
+		{
+			 count = (Integer) entry.getValue();
+			if(count%2 != 0)
+			{
+				count = (Integer) entry.getKey();
+				break;
+			}
+		}
+		
+		return count;
+		
+		
+	}
+	
 	
 	
 	
