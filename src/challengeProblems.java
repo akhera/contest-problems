@@ -53,20 +53,16 @@ public class challengeProblems {
 			differences.put(nums[i],4 -nums[i]);  
 		}
 		
-		for(Map.Entry entry: differences.entrySet())
+		for(Map.Entry<Integer, Integer> entry: differences.entrySet())
 		{
-		
 			if(differences.containsKey(entry.getValue()))
 			{
 					pair = entry;
 					break;
 			}
-			
-			
 		}
 		
-		return pair;
-		
+		return pair;	
 	}
 	
 	
@@ -85,12 +81,12 @@ public class challengeProblems {
 			
 		}
 		
-		for(Map.Entry entry: values.entrySet())
+		for(Map.Entry <Integer,Integer> entry: values.entrySet())
 		{
-			 count = (Integer) entry.getValue();
+			 count =  entry.getValue();
 			if(count%2 != 0)
 			{
-				count = (Integer) entry.getKey();
+				count =  entry.getKey();
 				break;
 			}
 		}
@@ -107,7 +103,7 @@ public class challengeProblems {
 		
 	//Test
 		
-		//System.out.println(challengeProblem1());
+		System.out.println(challengeProblem1());
 		
 		
 
