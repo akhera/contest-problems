@@ -1,5 +1,7 @@
-import java.util.HashMap;
-import java.util.Map;
+
+import java.util.*;
+import java.util.Collections;
+import java.io.*;
 
 
 public class challengeProblems {
@@ -15,6 +17,7 @@ public class challengeProblems {
 			if(i%3==0 || i%5==0)
 				sum+=i;	
 		}
+		
 		return sum;
 	}
 	
@@ -95,18 +98,123 @@ public class challengeProblems {
 		
 		
 	}
-	
-	
-	
-	
-	public static void main(String[] args) {
+
+
+
+	public static int[][] rotate(int [][]nums)
+	{
+		for(int depth =0;depth<nums.length/2;depth++)
+		{
+
+			for(int width = 0;width<nums.length-depth;width++)
+			{
+				nums[width+ depth][width] = nums[width][width+ depth]; 
+
+
+			}
+
+
+
+		}
+
+
+	}
+
+	public static long factors(long x)
+	{
 		
-	//Test
+		for(long i = (long) Math.sqrt(x) +1;i>=0;i--)
+		{
+			if(x%i==0 && isPrime(i))
+				return i;
+		}
+
+		return 0;
+	}
+
+	public static boolean isPrime(long x)
+	{
+
+		for(long i = 2;i<x;i++)
+		{
+			if(x%i==0)
+			{
+				return false;
+			}
+
+		}
+
+		return true;
+	}
+
+	public int recursiveBinarySearch(int[] nums, int low, int high, int value)
+	{
+
+		int mid = (low+high)/2;
+		if(nums[mid] == value)
+		{
+			return mid;
+		}
+		if(nums[mid]> value)
+		{
+			return recursiveBinarySearch(nums, mid, (mid+high)/2, value);
+		}
+		if(nums[mid] < value)
+		{
+			return recursiveBinarySearch(nums, (low+high)/2, mid, value);
+	
+		}
+
+
+
+
+
+	}
+
+
+
+	
+	
+	public static void main(String[] args) throws FileNotFoundException {
+
+
+
+		LinkedList<Integer> ll = new LinkedList<Integer>();
+		ll.add(1);
+		ll.add(4);
+		ll.add(10);
+		System.out.println("Original contents of ll: " + ll);
+
+
+		Hashtable<String, Integer> numbers = new Hashtable<String, Integer>();
+   		numbers.put("one", 1);
+   		numbers.put("two", 2);
+   		numbers.put("three", 3);
+
+
+
+
+
+
+
+		//read from file example
+		/*
+		ArrayList<Integer> integers = new ArrayList<Integer>(); 
+		Scanner fileScanner = new Scanner(new File(args[0]));
+		while (fileScanner.hasNext()){
+			integers.add(fileScanner.nextInt());
+		}
 		
-		System.out.println(challengeProblem1());
-		
+		fileScanner.close();
+
+		for(int i = 0;i<integers.size()/2;i++)
+		{
+			System.out.println(integers.get(i) + " " + integers.get(i+1));
+		}
+		*/
 		
 
 	}
+	
 
 }
