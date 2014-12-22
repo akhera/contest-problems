@@ -77,13 +77,13 @@
 			return pair;	
 		}
 
-		public static int removeDuplicates(int [] arr)
+		public static int[] removeDuplicates(int [] arr)
 		{
 			
 			for(int i = 0;i<arr.length;i++)
 			{
 				
-				
+
 
 			}
 

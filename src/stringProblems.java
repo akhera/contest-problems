@@ -105,6 +105,53 @@
 
 		}
 
+		public static String sort(String s) 
+		{
+		 	char[] content = s.toCharArray();
+ 			java.util.Arrays.sort(content);
+ 			return new String(content);
+		}
+
+		public static boolean isPermutation2(String s1, String s2)
+		{
+			if(s1.length()!=s2.length())
+				return false;
+			
+			return sort(s1).equals(sort(s2));
+
+		}
+
+		/*Given a list of strings, return a list of lists of strings that groups all anagrams. 
+		Ex. given {trees, bike, cars, steer, arcs} 
+		return { {cars, arcs}, {bike}, {trees, steer} } */
+		public static ArrayList<ArrayList<String>> groupAnagrams(ArrayList<String> words)
+		{
+			ArrayList<ArrayList<String>> anagrams = new ArrayList<ArrayList<String>>();
+			HashMap<String,ArrayList<String>> map = new HashMap<String, ArrayList<String>>();
+			for(String s: words)
+			{
+				String sorted = sort(s);
+				if(!map.containsKey(sorted))
+				{	ArrayList<String> group = new ArrayList<String>();
+					group.add(s);
+					map.put(sorted, group);
+				}
+				else
+				{
+					map.get(sorted).add(s);
+				}
+			}
+			for(String key: map.keySet())
+			{
+				anagrams.add(map.get(key));
+
+			}
+
+			return anagrams;
+		}
+		
+
+
 
 
 		public static void main(String[] args) throws FileNotFoundException 
@@ -123,6 +170,8 @@
 			System.out.println(isPermutation(first, second));
 
 
+			ArrayList<String> temp = new ArrayList<String>(Arrays.asList("trees", "bike", "cars", "arcs", "steer"));
+			System.out.println(groupAnagrams(temp));
 
 
 		}
